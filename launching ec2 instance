@@ -1,0 +1,19 @@
+---
+- name: ec2 launcher
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: launching ec2
+    ec2:
+      instance_type: t2.micro
+      key_name: ec2key
+      image: ami-01d025118d8e760db
+      region: us-east-1
+      group: default
+      count: 1
+      vpc_subnet_id: subnet-c41167a1
+      wait: yes
+      assign_public_ip: yes
+      aws_access_key: AKIAV4S****4YGLYQH4
+      aws_secret_key: BuhH2fHU****ygR5Q9Na/QM73tsOG**4srLHJ2nWM
+    register: ec2
